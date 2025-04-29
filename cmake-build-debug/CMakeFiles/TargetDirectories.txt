@@ -1,0 +1,5 @@
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/BooksThroughTheAges.dir
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/BooksThroughTheAges_autogen_timestamp_deps.dir
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/BooksThroughTheAges_autogen.dir
