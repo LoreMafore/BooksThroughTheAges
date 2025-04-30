@@ -13,9 +13,14 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(BooksThroughTheAges main.cpp
+
+add_executable(BooksThroughTheAges
+        main.cpp
         BookInfo.h
-        BookInfo.cpp)
+        BookInfo.cpp
+        Background.h
+        resources.qrc
+)
 target_link_libraries(BooksThroughTheAges
         Qt::Core
         Qt::Gui

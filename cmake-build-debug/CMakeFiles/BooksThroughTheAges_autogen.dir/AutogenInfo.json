@@ -323,13 +323,21 @@
 		"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake",
 		"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake",
 		"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake",
-		"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake"
+		"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
+		"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/images/Books.jpg",
+		"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges",
 	"DEP_FILE" : "C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/BooksThroughTheAges_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "BooksThroughTheAges_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Background.h",
+			"MU",
+			"EWIEGA46WW/moc_Background.cpp",
+			null
+		],
 		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h",
 			"MU",

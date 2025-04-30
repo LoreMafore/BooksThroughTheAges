@@ -36,6 +36,7 @@ BooksThroughTheAges_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake \
+	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Background.h \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/CMakeLists.txt \
@@ -43,7 +44,9 @@ BooksThroughTheAges_autogen/timestamp: \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/3.27.8/CMakeCXXCompiler.cmake \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/3.27.8/CMakeRCCompiler.cmake \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/3.27.8/CMakeSystem.cmake \
+	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/images/Books.jpg \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/main.cpp \
+	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/resources.qrc \
 	C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake \
 	C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake \
 	C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake \

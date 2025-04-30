@@ -3,40 +3,11 @@
 //
 
 #include <QApplication>
-#include <QPushButton>
 #include <QPainter>
 #include <QPaintEvent>
 #include <QMainWindow>
-#include <QWidget>
-
-class Test : public QWidget{
-public:
-    Test(QWidget *parent = nullptr) : QWidget(parent){}
-
-    void paintEvent(QPaintEvent *event) override;
-};
-
-
-void Test::paintEvent(QPaintEvent *event)
-{
-    QPainter painter(this);
-    QString title = "Viva Cristo Rey";
-
-    QFont font;
-    font.setPointSize(12);
-    painter.setFont(font);
-    painter.setPen(Qt::red);
-
-    const QRect rect = QRect(0,0,1000,100);
-    QRect test_rect = painter.boundingRect(rect, Qt::TextWordWrap, title);
-
-    int x = 50;
-    int y = 50;
-
-    painter.drawText(x,y,test_rect.width(), test_rect.height(), Qt::AlignLeft | Qt::AlignTop, title);
-
-}
-
+#include "BookInfo.h"
+#include "Background.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -47,9 +18,12 @@ int main(int argc, char *argv[]) {
     window.setWindowTitle("Info");
     window.resize(window_x, window_y);
 
-    Test *tester = new Test(&window);
+    Background *background = new Background(&window);
+    background->setGeometry(0,0,window_x, window_y);
+    Text *text = new Text(&window, window_x, window_y);
 
-    window.setCentralWidget(tester);
+    window.setCentralWidget(background);
+    //window.setCentralWidget(text);
 
     window.show();
     return QApplication::exec();
