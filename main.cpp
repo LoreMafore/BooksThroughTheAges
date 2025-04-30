@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QMainWindow>
+#include <QLabel>
 #include "BookInfo.h"
 #include "Background.h"
 
@@ -18,12 +19,9 @@ int main(int argc, char *argv[]) {
     window.setWindowTitle("Info");
     window.resize(window_x, window_y);
 
-    Background *background = new Background(&window);
-    background->setGeometry(0,0,window_x, window_y);
     Text *text = new Text(&window, window_x, window_y);
 
-    window.setCentralWidget(background);
-    //window.setCentralWidget(text);
+    window.setCentralWidget(text);
 
     window.show();
     return QApplication::exec();

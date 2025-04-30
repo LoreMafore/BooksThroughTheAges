@@ -11,6 +11,7 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Network
         REQUIRED)
 
 
@@ -25,7 +26,9 @@ target_link_libraries(BooksThroughTheAges
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Network
 )
+qt_add_resources(MY_PROJECT_NAME resources.qrc)
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     set(DEBUG_SUFFIX)

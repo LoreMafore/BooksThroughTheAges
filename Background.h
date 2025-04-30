@@ -3,7 +3,7 @@
 //
 #ifndef BOOKSTHROUGHTHEAGES_BACKGROUND_H
 #define BOOKSTHROUGHTHEAGES_BACKGROUND_H
-
+//Nothing ever works
 #include <QMainWindow>
 #include <QPixmap>
 #include <QPalette>
@@ -15,14 +15,11 @@ private:
 public:
     Background(QWidget *parent = nullptr): QWidget(parent)
     {
-        background = QImage(":/images/Books.jpg");
+        background = QImage("../images/Books.png");
 
         if (background.isNull()) {
             qDebug() << "WARNING: Failed to load image from resource path ':/images/Books.jpg'";
 
-        }
-        else {
-            qDebug() << "Successfully loaded image with dimensions:" << background.width() << "x" << background.height();
         }
     }
 protected:

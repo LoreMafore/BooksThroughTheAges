@@ -6,9 +6,18 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMainWindow>
+#include <QFile>
+#include <QDebug>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 class Text : public QWidget{
 private:
+    //Struct that allows us to have more that one text
     struct text_items_strc {
         QString text;
         QFont font;
@@ -23,21 +32,35 @@ private:
     };
 
     QVector<text_items_strc> text_items;
+    QNetworkAccessManager *manager;
+    QString book_title;
+    QString book_author;
+
 
 public:
     Text(QWidget *parent = nullptr, int window_x = 0, int window_y = 0) : QWidget(parent){
+
+        manager = new QNetworkAccessManager(this);
+
+        //Title Text
         QFont font1;
         font1.setPixelSize(16);
         int title_x = window_x/4;
         int title_y = window_y/6;
         text_items.append(text_items_strc("Title:", font1, QColor(0,0,255), QPoint(title_x, title_y), 200, true));
 
+        //Author Text
         QFont font2;
         font1.setPixelSize(16);
         int author_x = window_x/4;
         int author_y = window_y/4.5;
         text_items.append(text_items_strc("Author:", font1, Qt::black, QPoint(author_x, author_y), 200, true));
 
+
+        //Doesnt Work
+        connect(manager, &QNetworkAccessManager::finished, this, [this](QNetworkReply *reply){
+            handleNetworkReply(reply);
+        });
 
     }
 
@@ -49,6 +72,21 @@ public:
     void paintEvent(QPaintEvent *event) override{
         QPainter painter(this);
 
+        //Draws background to screen
+        QString imagePath = "../images/Books.png";
+
+        if (!QFile::exists(imagePath)) {
+            qDebug() << "Image file does not exist at path:" << imagePath;
+        } else {
+            QPixmap backgroundImage(imagePath);
+            if (backgroundImage.isNull()) {
+                qDebug() << "Failed to load image even though file exists";
+            } else {
+                painter.drawPixmap(rect(), backgroundImage, backgroundImage.rect());
+            }
+        }
+
+        //Draws Text to screen
         for(const text_items_strc& item : text_items)
         {
             painter.setFont(item.font);

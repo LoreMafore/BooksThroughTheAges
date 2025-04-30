@@ -22,11 +22,13 @@
 		"files" : 
 		[
 			"CMakeLists.txt",
+			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
 			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
 			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
-			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
-			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
+			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
+			"C:/Users/momer/Qt/6.9.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake"
 		],
 		"nodes" : 
 		[
@@ -36,13 +38,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 24,
+				"line" : 25,
 				"parent" : 0
 			},
 			{
@@ -68,7 +70,7 @@
 			{
 				"command" : 3,
 				"file" : 2,
-				"line" : 57,
+				"line" : 55,
 				"parent" : 6
 			},
 			{
@@ -94,7 +96,7 @@
 			{
 				"command" : 3,
 				"file" : 5,
-				"line" : 55,
+				"line" : 57,
 				"parent" : 11
 			},
 			{
@@ -106,6 +108,32 @@
 				"file" : 4,
 				"line" : 61,
 				"parent" : 13
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 212,
+				"parent" : 4
+			},
+			{
+				"file" : 7,
+				"parent" : 15
+			},
+			{
+				"command" : 3,
+				"file" : 7,
+				"line" : 55,
+				"parent" : 16
+			},
+			{
+				"file" : 6,
+				"parent" : 17
+			},
+			{
+				"command" : 2,
+				"file" : 6,
+				"line" : 61,
+				"parent" : 18
 			}
 		]
 	},
@@ -131,6 +159,10 @@
 				{
 					"backtrace" : 2,
 					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_NETWORK_LIB"
 				},
 				{
 					"backtrace" : 2,
@@ -192,6 +224,11 @@
 					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "C:/Users/momer/Qt/6.9.0/mingw_64/include/QtWidgets"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/momer/Qt/6.9.0/mingw_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -208,8 +245,7 @@
 			[
 				0,
 				1,
-				3,
-				7
+				3
 			]
 		}
 	],
@@ -243,7 +279,32 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "C:\\Users\\momer\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Network.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "C:\\Users\\momer\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Gui.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-ld3d11",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-ldxgi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-ldxguid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-ld3d12",
 				"role" : "libraries"
 			},
 			{
@@ -252,33 +313,18 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 9,
+				"backtrace" : 14,
 				"fragment" : "-lmpr",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 9,
+				"backtrace" : 14,
 				"fragment" : "-luserenv",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 14,
-				"fragment" : "-ld3d11",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 14,
-				"fragment" : "-ldxgi",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 14,
-				"fragment" : "-ldxguid",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 14,
-				"fragment" : "-ld3d12",
+				"backtrace" : 19,
+				"fragment" : "-lws2_32",
 				"role" : "libraries"
 			},
 			{
@@ -303,8 +349,7 @@
 			[
 				0,
 				1,
-				3,
-				7
+				3
 			]
 		},
 		{
@@ -327,8 +372,7 @@
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				8,
-				9
+				7
 			]
 		}
 	],
@@ -376,21 +420,8 @@
 		},
 		{
 			"backtrace" : 0,
-			"compileGroupIndex" : 0,
-			"isGenerated" : true,
-			"path" : "cmake-build-debug/BooksThroughTheAges_autogen/EWIEGA46WW/qrc_resources.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "cmake-build-debug/BooksThroughTheAges_autogen/timestamp.rule",
-			"sourceGroupIndex" : 3
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : "cmake-build-debug/BooksThroughTheAges_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
 			"sourceGroupIndex" : 3
 		}
 	],
