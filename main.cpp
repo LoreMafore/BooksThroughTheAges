@@ -5,29 +5,38 @@
 #include <QApplication>
 #include <QPushButton>
 #include <QPainter>
+#include <QPaintEvent>
 #include <QMainWindow>
-#include "BookInfo.h"
+#include <QWidget>
 
-class TestText : public QWidget{
-
+class Test : public QWidget{
 public:
-    //constructor
-    TestText() : QWidget() {};
+    Test(QWidget *parent = nullptr) : QWidget(parent){}
 
-    //overriding normal paint event
-    void paintEvent(QPaintEvent *) override{
-        QPainter painter(this);
-        QFont font = painter.font();
-        font.setPixelSize(24);
-        painter.setFont(font);
-        painter.setBrush(Qt::GlobalColor::black);
-
-        const QRect rectangle = QRect(1, 1, 100, 50);
-        QRect bounding_rect;
-        painter.drawText(rectangle, 0, tr("Jesus"), &bounding_rect);
-    }
-
+    void paintEvent(QPaintEvent *event) override;
 };
+
+
+void Test::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    QString title = "Viva Cristo Rey";
+
+    QFont font;
+    font.setPointSize(12);
+    painter.setFont(font);
+    painter.setPen(Qt::red);
+
+    const QRect rect = QRect(0,0,1000,100);
+    QRect test_rect = painter.boundingRect(rect, Qt::TextWordWrap, title);
+
+    int x = 50;
+    int y = 50;
+
+    painter.drawText(x,y,test_rect.width(), test_rect.height(), Qt::AlignLeft | Qt::AlignTop, title);
+
+}
+
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -38,8 +47,11 @@ int main(int argc, char *argv[]) {
     window.setWindowTitle("Info");
     window.resize(window_x, window_y);
 
+    Test *tester = new Test(&window);
+
+    window.setCentralWidget(tester);
+
     window.show();
-    _draw_info(window_x, window_y);
     return QApplication::exec();
 }
 
