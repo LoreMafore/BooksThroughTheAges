@@ -1,6 +1,6 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="/">
-        <file>images/Books.jpg</file>
+        <file>images/Books.png</file>
     </qresource>
 </RCC>
