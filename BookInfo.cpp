@@ -13,13 +13,13 @@ Text::Text(QWidget *parent, int window_x, int window_y) : QWidget(parent){
     font1.setPixelSize(16);
     int title_x = window_x/4;
     int title_y = window_y/6;
-    text_items.append(text_items_strc("Title:", font1, QColor(0,0,255), QPoint(title_x, title_y), 200, true));
+    text_items.append(text_items_strc("Title:", font1, QColor(0,0,0), QPoint(title_x, title_y), 200, true));
 
     QFont font1t;
     font1.setPixelSize(16);
-    int title_xt = (window_x/4) + 20;
+    int title_xt = (window_x/4) + 100;
     int title_yt = window_y/6;
-    text_items.append(text_items_strc(book_title, font1, QColor(0,0,255), QPoint(title_xt, title_yt), 200, true));
+    text_items.append(text_items_strc(book_title, font1, Qt::black, QPoint(title_xt, title_yt), 200, true));
 
     //Author Text
     QFont font2;
@@ -30,9 +30,9 @@ Text::Text(QWidget *parent, int window_x, int window_y) : QWidget(parent){
 
     QFont font2a;
     font1.setPixelSize(16);
-    int title_xa = (window_x/4) + 20;
-    int title_ya = window_y/6;
-    text_items.append(text_items_strc(book_author, font1, QColor(0,0,255), QPoint(title_xa, title_ya), 200, true));
+    int author_xa = (window_x/4) + 100;
+    int author_ya = window_y/4.5;
+    text_items.append(text_items_strc(book_author, font1, Qt::black, QPoint(author_xa, author_ya), 200, true));
 
 }
 
@@ -43,7 +43,7 @@ Text::~Text() {
 void Text::get_book_info(const QString &workId, const std::function<void(QString, QString)>& callback){
 
     //HTML page for book
-    QUrl url(QString("https://openlibrary.org/works/%1.json").arg(workId));
+    QUrl url(QString("http://openlibrary.org/works/%1.json").arg(workId));
     QNetworkRequest request(url);
     //GET request for HTML
     QNetworkReply *reply = manager->get(request);
@@ -85,7 +85,7 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
                         QString author_key = author_ref["key"].toString();
 
                         //HTML Page for author
-                        QUrl author_url(QString("https://openlibrary.org%1.json").arg(author_key));
+                        QUrl author_url(QString("http://openlibrary.org%1.json").arg(author_key));
                         QNetworkRequest author_request(author_url);
                         //GET request for HTML
                         QNetworkReply *author_reply = manager->get(author_request);
@@ -130,6 +130,15 @@ void Text::fetch_book_info(const QString &workId){
         //assign values
         this->book_title = get_title;
         this->book_author = get_author;
+
+        for (int i = 0; i < text_items.size(); i++) {
+            if (i == 1) {  // This is the book title text item (second item in your array)
+                text_items[i].text = get_title;
+            }
+            else if (i == 3) {  // This is the author text item (fourth item in your array)
+                text_items[i].text = get_author;
+            }
+        }
 
         update();
     });
