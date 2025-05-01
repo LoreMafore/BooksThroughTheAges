@@ -35,6 +35,7 @@ private:
     QNetworkAccessManager *manager;
     QString book_title;
     QString book_author;
+    QString book_pages;
 
 
 public:
@@ -43,7 +44,7 @@ public:
     ~Text() override;
 
     //Get book_title and author as strings
-    void get_book_info(const QString& workId, const std::function<void(QString, QString)>& callback);
+    void get_book_info(const QString& workId, const std::function<void(QString, QString, QString)>& callback);
 
     //Fetch then update the UI
     void fetch_book_info(const QString& workId);

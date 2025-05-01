@@ -19,7 +19,7 @@ public:
         setCentralWidget(bookInfoWidget);
 
         // Fetch book info
-        bookInfoWidget->fetch_book_info("OL49580W"); // Speaker for the Dead
+        bookInfoWidget->fetch_book_info("OL9639573M"); // Speaker for the Dead
     }
 };
 
