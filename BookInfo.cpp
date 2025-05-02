@@ -62,7 +62,7 @@ Text::~Text() {
     delete manager;
 }
 
-void Text::get_book_info(const QString &workId, const std::function<void(QString, QString, QString)>& callback){
+void Text::get_book_info(const QString &workId, const std::function<void(QString, QString, QString, QPixmap)>& callback){
 
     //HTML page for book
     QUrl url(QString("http://openlibrary.org/books/%1.json").arg(workId));
@@ -74,6 +74,7 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
         QString get_title = "Unknown";
         QString get_author = "Unknown";
         QString get_pages = "?";
+        QString get_cover_id = "Image Not found";
 
         bool multi_authors = false;
 
@@ -91,12 +92,18 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
             get_title = json_obj["title"].toString();
 
             //number of pages
-
             if(json_obj.contains("number_of_pages"))
             {
                 get_pages = QString::number(json_obj["number_of_pages"].toInt());
             }
 
+            //get cover_id
+            if(json_obj.contains("covers") && json_obj["covers"].isArray()){
+                QJsonArray cover_list = json_obj["covers"].toArray();
+                if(!cover_list.isEmpty()){
+                    get_cover_id = QString::number(cover_list[0].toInt());
+                }
+            }
 
             //get author
             if(json_obj.contains("authors") && json_obj["authors"].isArray()){
@@ -112,7 +119,6 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
                         author_key = author_obj["key"].toString();
                     }
 
-
                     //this will get the key which allows us to go to the
                     //Author page allowing us to access to his name
                     if(author_obj.contains("author")) {
@@ -127,7 +133,8 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
                         //GET request for HTML
                         QNetworkReply *author_reply = manager->get(author_request);
 
-                        QObject::connect(author_reply, &QNetworkReply::finished, [author_reply, get_title, callback, multi_authors, get_pages](){
+                        //using this so we can use manager
+                        QObject::connect(author_reply, &QNetworkReply::finished, [author_reply, get_title, callback, multi_authors, get_pages,get_cover_id, this](){
                             QString get_author = "Unknown";
 
                             if(author_reply->error() == QNetworkReply::NoError){
@@ -144,7 +151,28 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
                                 }
                             }
 
-                            callback(get_title, get_author, get_pages);
+                            if(!get_cover_id.isEmpty())
+                            {
+                                QUrl cover_url(QString("http://covers.openlibrary.org/b/id/%1-L.jpg").arg(get_cover_id));
+                                QNetworkRequest cover_request(cover_url);
+                                QNetworkReply *cover_reply = manager->get(cover_request);
+
+                                QObject::connect(cover_reply,&QNetworkReply::finished, [cover_reply, get_title, get_author, get_pages, callback](){
+                                    QPixmap cover_image;
+
+                                    if(cover_reply->error() == QNetworkReply::NoError){
+                                        QByteArray cover_data = cover_reply->readAll();
+                                        cover_image.loadFromData(cover_data);
+                                    }
+
+                                    callback(get_title, get_author,get_pages, cover_image);
+                                    cover_reply->deleteLater();
+                                });
+                            }
+                            else{
+                                callback(get_title, get_author, get_pages, QPixmap());
+                            }
+
                             //delete later puts in on a stack where Qt will eventually delete it
                             author_reply->deleteLater();
                         });
@@ -156,18 +184,19 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
             }
         }
         //Couldnt GET names so we make them unknown
-        callback(get_title, get_author, get_pages);
+        callback(get_title, get_author, get_pages, get_cover_id);
         reply->deleteLater();
     });
 }
 
 void Text::fetch_book_info(const QString &workId){
-    get_book_info(workId, [this](const QString& get_title, const QString& get_author, const QString& get_pages)
+    get_book_info(workId, [this](const QString& get_title, const QString& get_author, const QString& get_pages, const QPixmap& get_cover)
     {
         //assign values
         this->book_title = get_title;
         this->book_author = get_author;
         this->book_pages = get_pages;
+        this->book_cover = get_cover;
 
         for (int i = 0; i < text_items.size(); i++) {
             if (i == 1) {  // This is the book title text item (second item in your array)

@@ -36,7 +36,7 @@ private:
     QString book_title;
     QString book_author;
     QString book_pages;
-
+    QPixmap book_cover;
 
 public:
     explicit Text(QWidget *parent = nullptr, int window_x = 0, int window_y = 0);
@@ -44,7 +44,7 @@ public:
     ~Text() override;
 
     //Get book_title and author as strings
-    void get_book_info(const QString& workId, const std::function<void(QString, QString, QString)>& callback);
+    void get_book_info(const QString& workId, const std::function<void(QString, QString, QString, QPixmap)>& callback);
 
     //Fetch then update the UI
     void fetch_book_info(const QString& workId);
