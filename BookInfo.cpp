@@ -183,8 +183,12 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
                 }
             }
         }
+        else {
+            qDebug() << "Book request error:" << reply->errorString(); // Added debug
+        }
+
         //Couldnt GET names so we make them unknown
-        callback(get_title, get_author, get_pages, get_cover_id);
+        callback(get_title, get_author, get_pages, QPixmap());
         reply->deleteLater();
     });
 }
@@ -192,6 +196,16 @@ void Text::get_book_info(const QString &workId, const std::function<void(QString
 void Text::fetch_book_info(const QString &workId){
     get_book_info(workId, [this](const QString& get_title, const QString& get_author, const QString& get_pages, const QPixmap& get_cover)
     {
+        // Added debug output
+        qDebug() << "Callback received with data:";
+        qDebug() << "  Title:" << get_title;
+        qDebug() << "  Author:" << get_author;
+        qDebug() << "  Pages:" << get_pages;
+        qDebug() << "  Cover is null:" << get_cover.isNull();
+        if(!get_cover.isNull()) {
+            qDebug() << "  Cover dimensions:" << get_cover.width() << "x" << get_cover.height();
+        }
+
         //assign values
         this->book_title = get_title;
         this->book_author = get_author;
@@ -223,8 +237,8 @@ void Text::add_text(const QString& text, QFont& font, const QColor& color, int &
 void Text::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
 
+    //Draw background
     QString imagePath = "../images/Books.png";
-
     if (!QFile::exists(imagePath)) {
         qDebug() << "Image file does not exist at path:" << imagePath;
     } else {
@@ -236,6 +250,7 @@ void Text::paintEvent(QPaintEvent *event) {
         }
     }
 
+    //draw text items
     for(const text_items_strc& item : text_items) {
         painter.setFont(item.font);
         painter.setPen(item.color);
@@ -246,5 +261,20 @@ void Text::paintEvent(QPaintEvent *event) {
         } else {
             painter.drawText(item.pos, item.text);
         }
+    }
+
+    //draw book cover
+    if(!book_cover.isNull())
+    {
+        int cover_x = width() * 0.7;
+        int cover_Y = height() * 0.25;
+
+        QPixmap scaled_cover = book_cover;
+        if(book_cover.height() > height()/2)
+        {
+            scaled_cover = book_cover.scaledToHeight(height()/2, Qt::SmoothTransformation);
+        }
+
+        painter.drawPixmap(cover_x, cover_Y, scaled_cover);
     }
 }
