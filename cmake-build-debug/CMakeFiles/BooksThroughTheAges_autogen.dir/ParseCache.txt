@@ -3,3 +3,5 @@ C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/main.cpp
 C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Background.h
 C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h
 C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.h
+C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.cpp

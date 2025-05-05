@@ -380,6 +380,12 @@
 			"MU",
 			"EWIEGA46WW/moc_BookInfo.cpp",
 			null
+		],
+		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.h",
+			"MU",
+			"EWIEGA46WW/moc_Buttons.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -459,6 +465,11 @@
 	[
 		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.cpp",
 			"MU",
 			null
 		],

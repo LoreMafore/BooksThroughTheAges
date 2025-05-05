@@ -40,6 +40,8 @@ BooksThroughTheAges_autogen/timestamp: \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Background.h \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h \
+  C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.cpp \
+  C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.h \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/CMakeLists.txt \
   CMakeFiles/3.27.8/CMakeCCompiler.cmake \
   CMakeFiles/3.27.8/CMakeCXXCompiler.cmake \

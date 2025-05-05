@@ -6,10 +6,10 @@
 #include <QMainWindow>
 #include "BookInfo.h"
 
-class MainWindow : public QMainWindow {
+class BookInfoWindow : public QMainWindow {
 public:
-    MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
-        setWindowTitle("Books Through The Ages");
+    BookInfoWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
+        setWindowTitle("Book Info");
         resize(800, 600);
 
         // Create the Text widget
@@ -22,6 +22,17 @@ public:
         bookInfoWidget->fetch_book_info("OL9639573M"); // Speaker for the Dead
     }
 };
+
+class MainWindow : public QMainWindow {
+public:
+    MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
+        setWindowTitle("Books Through The Ages");
+        resize(800, 600);
+
+    }
+};
+
+
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);

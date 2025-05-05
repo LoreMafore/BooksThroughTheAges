@@ -21,6 +21,8 @@ add_executable(BooksThroughTheAges
         BookInfo.cpp
         Background.h
         resources.qrc
+        Buttons.cpp
+        Buttons.h
 )
 target_link_libraries(BooksThroughTheAges
         Qt::Core
