@@ -8,6 +8,8 @@
 #include <QApplication>
 #include <QPushButton>
 #include <QVector>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 class Buttons : public QWidget{
 private:
@@ -25,13 +27,20 @@ private:
 
     };
 
-    QVector<button_details_strc> button_list;
+    QVector<button_details_strc> button_struct_list;
+    QVector<QPushButton*> push_button_list;
+
+    QGraphicsScene *scene;
+    QGraphicsView *view;
 
 public:
-    Buttons(QWidget * parent = nullptr, int window_x = 0, int window_y = 0);
+    explicit Buttons(QWidget * parent = nullptr, int window_x = 0, int window_y = 0);
+
+    ~Buttons() override;
 
     void add_button(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y);
 
+    void show_buttons(const QVector<QString>& title_list);
 };
 
 #endif //BOOKSTHROUGHTHEAGES_BUTTONS_H

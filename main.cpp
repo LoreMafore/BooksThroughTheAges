@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QMainWindow>
 #include "BookInfo.h"
+#include "Buttons.h"
 
 class BookInfoWindow : public QMainWindow {
 public:
@@ -28,6 +29,15 @@ public:
     MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
         setWindowTitle("Books Through The Ages");
         resize(800, 600);
+
+        Buttons *test_button = new Buttons(this, width(), height());
+
+        QVector<QString> button_titles;
+        button_titles.append("Speaker for the Dead");
+
+        test_button->show_buttons(button_titles);
+
+        setCentralWidget(test_button);
 
     }
 };
