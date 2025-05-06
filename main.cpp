@@ -5,7 +5,7 @@
 #include <QApplication>
 #include <QMainWindow>
 #include "BookInfo.h"
-#include "Buttons.h"
+#include "Books.h"
 
 class BookInfoWindow : public QMainWindow {
 public:
@@ -34,6 +34,8 @@ public:
 
         QVector<QString> button_titles;
         button_titles.append("Speaker for the Dead");
+        button_titles.append("Ender's Game");
+        button_titles.append("War and Peace");
 
         test_button->show_buttons(button_titles);
 

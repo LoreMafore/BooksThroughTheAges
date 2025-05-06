@@ -382,6 +382,12 @@
 			null
 		],
 		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Books.h",
+			"MU",
+			"EWIEGA46WW/moc_Books.cpp",
+			null
+		],
+		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.h",
 			"MU",
 			"EWIEGA46WW/moc_Buttons.cpp",
@@ -465,6 +471,11 @@
 	[
 		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Books.cpp",
 			"MU",
 			null
 		],
