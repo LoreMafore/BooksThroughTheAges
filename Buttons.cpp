@@ -24,7 +24,7 @@ void Buttons::add_book_button() {
     //no books - default
     if(book_list.isEmpty()){
         button_struct_list.append(
-                button_details_strc("yellow", "black", true, 150, 100, 50,50, "circle");
+                button_details_strc("yellow", "black", true, 150, 100, 50,50, "circle")
                 );
     }
 
@@ -33,7 +33,7 @@ void Buttons::add_book_button() {
         int end = book_list.size() - 1;
 
         button_struct_list.append(
-                button_details_strc("yellow", "black", true, 150, 100, book_list[end].pos_x + 50, book_list[end].pos_y, "circle")
+                button_details_strc("yellow", "black", true, 150, 50, book_list[end].pos_x, book_list[end].pos_y + 50, "circle")
                 );
     }
 
@@ -67,24 +67,33 @@ void Buttons::show_buttons(const QVector<QString> &button_text_list) {
         QColor temp_color = button_struct_list[i].button_color;
         QString darker_color = temp_color.darker(110).name();
 
-        QString styleSheet = QString(
+        QString style_sheet = QString(
                 "QPushButton {"
                 "  background-color: %1;"
                 "  color: %2;"
-                "  border-radius: %3px;" // Half of the width to make a circle
-                "  border: %4;"
+                "  border: %3;"
                 "}"
                 "QPushButton:hover {"
-                "  background-color: %5;"
+                "  background-color: %4;"
                 "}"
         )
         .arg(button_struct_list[i].button_color)
         .arg(button_struct_list[i].text_color)
-        .arg(size/2)
         .arg(button_struct_list[i].border ? "1px solid black" : "none")
         .arg(darker_color);
 
-        button->setStyleSheet(styleSheet);
+        if (button_struct_list[i].tag == "circle") {
+            style_sheet += "QPushButton { border-radius: " + QString::number(button_struct_list[i].height / 2) + "px; }";
+        }
+
+
+        button->setStyleSheet(style_sheet);
+        push_button_list.append(button);
+
+        QGraphicsProxyWidget *button_wrapper = scene->addWidget(button);
+        button_wrapper->setPos(button_struct_list[i].pos_x, button_struct_list[i].pos_y);
     }
+
+
 }
 

@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include "BookInfo.h"
 #include "Books.h"
+#include "Buttons.h"
 
 class BookInfoWindow : public QMainWindow {
 public:
@@ -39,6 +40,14 @@ public:
         book_titles.append("Harry Pottery");
 
         books->show_books(book_titles);
+
+        Buttons *buttons = new Buttons(this, books);
+        buttons->add_book_button();
+
+        QVector<QString> button_text_list;
+        button_text_list.append("+");
+
+        buttons->show_buttons(button_text_list);
 
         setCentralWidget(books);
 
