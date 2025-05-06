@@ -44,6 +44,14 @@ public:
 
     void show_books(const QVector<QString>& title_list);
 
+    const QVector<books_details_strc>& get_book_struct_list(){
+        return book_struct_list;
+    }
+
+    QGraphicsScene *get_scene(){
+        return scene;
+    }
+
 };
 
 
