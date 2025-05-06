@@ -30,16 +30,17 @@ public:
         setWindowTitle("Books Through The Ages");
         resize(800, 600);
 
-        Buttons *test_button = new Buttons(this, width(), height());
+        Books *books = new Books(this, width(), height());
 
-        QVector<QString> button_titles;
-        button_titles.append("Speaker for the Dead");
-        button_titles.append("Ender's Game");
-        button_titles.append("War and Peace");
+        QVector<QString> book_titles;
+        book_titles.append("Speaker for the Dead");
+        book_titles.append("Ender's Game");
+        book_titles.append("War and Peace");
+        book_titles.append("Harry Pottery");
 
-        test_button->show_buttons(button_titles);
+        books->show_books(book_titles);
 
-        setCentralWidget(test_button);
+        setCentralWidget(books);
 
     }
 };

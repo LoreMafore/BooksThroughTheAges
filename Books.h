@@ -12,10 +12,10 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-class Buttons : public QWidget{
+class Books : public QWidget{
 private:
-    struct button_details_strc {
-        QString button_color;
+    struct books_details_strc {
+        QString book_color;
         QString text_color;
         bool border;
         float width;
@@ -23,26 +23,27 @@ private:
         float pos_x;
         float pos_y;
 
-        button_details_strc(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y)
-                : button_color(bt_clr), text_color(txt_clr), border(bord), width(wdth), height(hght), pos_x(x), pos_y(y) {};
+        books_details_strc(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y)
+                : book_color(bt_clr), text_color(txt_clr), border(bord), width(wdth), height(hght), pos_x(x), pos_y(y) {};
 
     };
 
-    QVector<button_details_strc> button_struct_list;
-    QVector<QPushButton*> push_button_list;
+    QVector<books_details_strc> book_struct_list;
+    QVector<QPushButton*> push_book_list;
 
     QGraphicsScene *scene;
     QGraphicsView *view;
 
 public:
 
-    explicit Buttons(QWidget * parent = nullptr, int window_x = 0, int window_y = 0);
+    explicit Books(QWidget * parent = nullptr, int window_x = 0, int window_y = 0);
 
-    ~Buttons() override;
+    ~Books() override;
 
-    void add_button(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y);
+    void add_book(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y);
 
-    void show_buttons(const QVector<QString>& title_list);
+    void show_books(const QVector<QString>& title_list);
+
 };
 
 

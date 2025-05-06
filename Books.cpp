@@ -9,27 +9,27 @@
 #include <QGraphicsView>
 #include <QTransform>
 
-Buttons::Buttons(QWidget *parent, int window_x, int window_y) : QWidget(parent) {
+Books::Books(QWidget *parent, int window_x, int window_y) : QWidget(parent) {
 
 }
 
-Buttons::~Buttons() {
+Books::~Books() {
     //Qt will delete scene and view automatically due to parent-child
     //relationships, but we clear the pointers to be safe
     scene = nullptr;
     view = nullptr;
 
-    push_button_list.clear();
+    push_book_list.clear();
 }
 
-void Buttons::add_button(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y){
-    button_struct_list.append(button_details_strc(bt_clr, txt_clr, bord, wdth, hght, x, y));
+void Books::add_book(const QString &bt_clr, const QString &txt_clr, bool bord, float wdth, float hght, float x, float y){
+    book_struct_list.append(books_details_strc(bt_clr, txt_clr, bord, wdth, hght, x, y));
 }
 
-void Buttons::show_buttons(const QVector<QString>& title_list) {
+void Books::show_books(const QVector<QString>& title_list) {
 
     //ensures no duplicates
-    push_button_list.clear();
+    push_book_list.clear();
 
     //clean up any existing layout
     if (layout()) {
@@ -48,68 +48,70 @@ void Buttons::show_buttons(const QVector<QString>& title_list) {
     main_layout->addWidget(view);
     setLayout(main_layout);
 
-    //number of buttons
-    int num_buttons = qMin(button_struct_list.size(), title_list.size());
+    //number of books
+    int num_books = qMin(book_struct_list.size(), title_list.size());
 
-    if (button_struct_list.isEmpty() && !title_list.isEmpty()) {
-        // Add default button for each title
+    if (book_struct_list.isEmpty() && !title_list.isEmpty()) {
+        // Add default book for each title
         for (int i = 0; i < title_list.size(); i++) {
-            button_struct_list.append(button_details_strc("tan", "black", true, 150, 40, 50 +i*50, 50));
+            book_struct_list.append(books_details_strc("tan", "black", true, 150, 40, 50 +i*50, 50));
         }
-        num_buttons = title_list.size();
+        num_books = title_list.size();
     }
 
 
-    for(int i = 0; i< num_buttons;i ++)
+    for(int i = 0; i< num_books;i ++)
     {
-        QPushButton* button = new QPushButton();
-        button->setText(title_list[i]);
+        QPushButton* book = new QPushButton();
+        book->setText(title_list[i]);
 
-        button->setGeometry(
-                button_struct_list[i].pos_x,
-                button_struct_list[i].pos_y,
-                button_struct_list[i].width,
-                button_struct_list[i].height
+        book->setGeometry(
+                book_struct_list[i].pos_x,
+                book_struct_list[i].pos_y,
+                book_struct_list[i].width,
+                book_struct_list[i].height
         );
 
-        //colors of button and text
+        QColor temp_color = book_struct_list[i].book_color;
+        QString darker_color = temp_color.darker(110).name();
+
+        //colors of book and text
         QString style_sheet = QString(
                 "QPushButton {"
                 "   background-color: %1;"
                 "   color: %2;"
-        ).arg(button_struct_list[i].button_color).arg(button_struct_list[i].text_color);
+                "   border: %3"
+                "}"
+                "QPushButton:hover {"
+                "  background-color: %4;"
+                "}"
+        )
+       .arg(book_struct_list[i].book_color)
+       .arg(book_struct_list[i].text_color)
+       .arg(book_struct_list[i].border ? "1px solid black" : "none")
+       .arg(darker_color);
 
-        //border around button
-        if(button_struct_list[i].border){
-            style_sheet += "    border: 1px solid black";
-        }
-        else{
-            style_sheet += "    border: none";
-        }
+        book->setStyleSheet(style_sheet);
+        push_book_list.append(book);
 
-        //position and size
-        style_sheet += "}";
-
-        button->setStyleSheet(style_sheet);
-        push_button_list.append(button);
-
-        QGraphicsProxyWidget *button_wrapper = scene->addWidget(button);
+        QGraphicsProxyWidget *book_wrapper = scene->addWidget(book);
 
         QTransform rotate;
         rotate.rotate(90);
-        button_wrapper->setTransform(rotate);
+        book_wrapper->setTransform(rotate);
 
 
-        button_wrapper->setPos(button_struct_list[i].pos_x, button_struct_list[i].pos_y);
+        book_wrapper->setPos(book_struct_list[i].pos_x, book_struct_list[i].pos_y);
 
-        //set rotation to middle of button
-        button_wrapper->setTransformOriginPoint(button->width()/2, button->height()/2);
+        //set rotation to middle of book
+        book_wrapper->setTransformOriginPoint(book->width()/2, book->height()/2);
 
     }
 
-    if(num_buttons == 0){
-        printf("No Buttons");
+    if(num_books == 0){
+        printf("No books");
     }
 
     scene->setSceneRect(scene->itemsBoundingRect());
 }
+
