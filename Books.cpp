@@ -5,20 +5,12 @@
 #include <QBoxLayout>
 #include <QGraphicsProxyWidget>
 #include <QGraphicsRotation>
-#include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QTransform>
 
-Books::Books(QWidget *parent, int window_x, int window_y) : QWidget(parent) {
-
+Books::Books(QWidget *parent, Scene *scene, int window_x, int window_y): QWidget(parent), scene_ref(scene) {
 }
 
 Books::~Books() {
-    //Qt will delete scene and view automatically due to parent-child
-    //relationships, but we clear the pointers to be safe
-    scene = nullptr;
-    view = nullptr;
-
     push_book_list.clear();
 }
 
@@ -31,22 +23,16 @@ void Books::show_books(const QVector<QString>& title_list) {
     //ensures no duplicates
     push_book_list.clear();
 
-    //clean up any existing layout
-    if (layout()) {
-        delete layout();
+    if(!scene_ref){
+        qDebug() << "Error: No scene reference available in Books object.";
+        return;
     }
 
-    QHBoxLayout *main_layout = new QHBoxLayout(this);
-    main_layout->setContentsMargins(0, 0, 0, 0); // Remove margins
-
-    scene = new QGraphicsScene(this);
-    view = new QGraphicsView(scene, this);
-    view->setRenderHint(QPainter::Antialiasing);
-    view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
-    view->setFrameStyle(QFrame::NoFrame); // Remove the frame
-
-    main_layout->addWidget(view);
-    setLayout(main_layout);
+    QGraphicsScene *scene = const_cast<QGraphicsScene *>(scene_ref->get_scene());
+    if(!scene){
+        qDebug() << "Error: Invalid scene in Scene object.";
+        return;
+    }
 
     //number of books
     int num_books = qMin(book_struct_list.size(), title_list.size());

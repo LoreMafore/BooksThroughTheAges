@@ -5,12 +5,11 @@
 #ifndef BOOKSTHROUGHTHEAGES_BOOKS_H
 #define BOOKSTHROUGHTHEAGES_BOOKS_H
 
+#include "MainWindow.h"
 #include <QWidget>
 #include <QApplication>
 #include <QPushButton>
 #include <QVector>
-#include <QGraphicsScene>
-#include <QGraphicsView>
 
 class Books : public QWidget{
 private:
@@ -31,12 +30,11 @@ private:
     QVector<books_details_strc> book_struct_list;
     QVector<QPushButton*> push_book_list;
 
-    QGraphicsScene *scene;
-    QGraphicsView *view;
+    //reference to scene
+    Scene *scene_ref;
 
 public:
-
-    explicit Books(QWidget * parent = nullptr, int window_x = 0, int window_y = 0);
+    explicit Books(QWidget *parent = nullptr, Scene *scene = nullptr, int window_x = 0, int window_y = 0);
 
     ~Books() override;
 
@@ -47,11 +45,6 @@ public:
     const QVector<books_details_strc>& get_book_struct_list(){
         return book_struct_list;
     }
-
-    QGraphicsScene *get_scene(){
-        return scene;
-    }
-
 };
 
 
