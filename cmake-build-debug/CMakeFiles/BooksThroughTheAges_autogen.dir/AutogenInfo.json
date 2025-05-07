@@ -382,6 +382,12 @@
 			null
 		],
 		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookSearchWindow.h",
+			"MU",
+			"EWIEGA46WW/moc_BookSearchWindow.cpp",
+			null
+		],
+		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Books.h",
 			"MU",
 			"EWIEGA46WW/moc_Books.cpp",
@@ -477,6 +483,11 @@
 	[
 		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookSearchWindow.cpp",
 			"MU",
 			null
 		],

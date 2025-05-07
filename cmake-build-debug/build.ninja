@@ -97,6 +97,14 @@ build CMakeFiles/BooksThroughTheAges.dir/MainWindow.cpp.obj: CXX_COMPILER__Books
   OBJECT_DIR = CMakeFiles\BooksThroughTheAges.dir
   OBJECT_FILE_DIR = CMakeFiles\BooksThroughTheAges.dir
 
+build CMakeFiles/BooksThroughTheAges.dir/BookSearchWindow.cpp.obj: CXX_COMPILER__BooksThroughTheAges_unscanned_Debug C$:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookSearchWindow.cpp || cmake_object_order_depends_target_BooksThroughTheAges
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\BooksThroughTheAges.dir\BookSearchWindow.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/BooksThroughTheAges_autogen/include -isystem C:/Users/momer/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Users/momer/Qt/6.9.0/mingw_64/include -isystem C:/Users/momer/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Users/momer/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Users/momer/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Users/momer/Qt/6.9.0/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\BooksThroughTheAges.dir
+  OBJECT_FILE_DIR = CMakeFiles\BooksThroughTheAges.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BooksThroughTheAges
@@ -105,7 +113,7 @@ build CMakeFiles/BooksThroughTheAges.dir/MainWindow.cpp.obj: CXX_COMPILER__Books
 #############################################
 # Link the executable BooksThroughTheAges.exe
 
-build BooksThroughTheAges.exe: CXX_EXECUTABLE_LINKER__BooksThroughTheAges_Debug CMakeFiles/BooksThroughTheAges.dir/BooksThroughTheAges_autogen/mocs_compilation.cpp.obj CMakeFiles/BooksThroughTheAges.dir/main.cpp.obj CMakeFiles/BooksThroughTheAges.dir/BookInfo.cpp.obj CMakeFiles/BooksThroughTheAges.dir/Buttons.cpp.obj CMakeFiles/BooksThroughTheAges.dir/Books.cpp.obj CMakeFiles/BooksThroughTheAges.dir/MainWindow.cpp.obj | C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Network.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Core.a || BooksThroughTheAges_autogen BooksThroughTheAges_autogen_timestamp_deps
+build BooksThroughTheAges.exe: CXX_EXECUTABLE_LINKER__BooksThroughTheAges_Debug CMakeFiles/BooksThroughTheAges.dir/BooksThroughTheAges_autogen/mocs_compilation.cpp.obj CMakeFiles/BooksThroughTheAges.dir/main.cpp.obj CMakeFiles/BooksThroughTheAges.dir/BookInfo.cpp.obj CMakeFiles/BooksThroughTheAges.dir/Buttons.cpp.obj CMakeFiles/BooksThroughTheAges.dir/Books.cpp.obj CMakeFiles/BooksThroughTheAges.dir/MainWindow.cpp.obj CMakeFiles/BooksThroughTheAges.dir/BookSearchWindow.cpp.obj | C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Network.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Core.a || BooksThroughTheAges_autogen BooksThroughTheAges_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = C:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a  C:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Network.a  C:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  C:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\BooksThroughTheAges.dir
@@ -173,7 +181,7 @@ build BooksThroughTheAges_autogen/timestamp BooksThroughTheAges_autogen/mocs_com
 #############################################
 # Phony custom command for CMakeFiles\BooksThroughTheAges_autogen_timestamp_deps
 
-build CMakeFiles/BooksThroughTheAges_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/BooksThroughTheAges_autogen_timestamp_deps: phony C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Users/momer/Qt/6.9.0/mingw_64/bin/moc.exe C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Core.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Users/momer/Qt/6.9.0/mingw_64/bin/uic.exe C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Network.a
+build CMakeFiles/BooksThroughTheAges_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/BooksThroughTheAges_autogen_timestamp_deps: phony C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Users/momer/Qt/6.9.0/mingw_64/bin/moc.exe C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Core.a C$:/Users/momer/Qt/6.9.0/mingw_64/bin/uic.exe C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Network.a C$:/Users/momer/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################

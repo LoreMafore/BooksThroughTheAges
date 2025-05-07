@@ -40,6 +40,8 @@ BooksThroughTheAges_autogen/timestamp: \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Background.h \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h \
+  C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookSearchWindow.cpp \
+  C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookSearchWindow.h \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Books.cpp \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Books.h \
   C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Buttons.cpp \

@@ -44,5 +44,20 @@ public:
     void add_book_button();
 
     void show_buttons(const QVector<QString>& button_text_list);
+
+    QPushButton* get_button(int index){
+        if(index >= 0 && index < push_button_list.size()){
+            return  push_button_list[index];
+        }
+        return nullptr;
+    }
+
+    void connect_button(int index, const QObject* reciever, const char* method){
+        if(index >= 0 && index < push_button_list.size()){
+            connect(push_button_list[index], SIGNAL(clicked()), reciever, method);
+        }
+
+    }
+
 };
 #endif //BOOKSTHROUGHTHEAGES_BUTTONS_H

@@ -6,6 +6,7 @@
 #include "BookInfo.h"
 #include "Books.h"
 #include "Buttons.h"
+#include "BookSearchWindow.h"
 
 class BookInfoWindow : public QMainWindow {
 public:
@@ -25,6 +26,17 @@ public:
 };
 
 class MainWindow : public QMainWindow {
+private:
+    Buttons *buttons;
+
+private slots:
+
+    void open_book_search_window(){
+        Book_Search_Window* search_window = new Book_Search_Window(this);
+        search_window->setAttribute(Qt::WA_DeleteOnClose);
+        search_window->exec();
+    };
+
 public:
     MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
         setWindowTitle("Books Through The Ages");
@@ -40,13 +52,20 @@ public:
 
         books->show_books(book_titles);
 
-        Buttons *buttons = new Buttons(this, books, scene, width(), height());
+        buttons = new Buttons(this, books, scene, width(), height());
         buttons->add_book_button();
 
         QVector<QString> button_text_list;
         button_text_list.append("+");
 
         buttons->show_buttons(button_text_list);
+
+        QPushButton* add_book_button = buttons->get_button(0);
+        if(add_book_button){
+            connect(add_book_button, &QPushButton::clicked, this, &MainWindow::open_book_search_window);
+        }
+
+
 
     }
 };
