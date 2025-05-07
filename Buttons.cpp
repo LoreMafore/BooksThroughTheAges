@@ -2,7 +2,7 @@
 // Created by Conrad Mercer on 5/5/2025.
 //
 #include "Buttons.h"
-#include <QGraphicsProxyWidget>>
+#include <QGraphicsProxyWidget>
 
 Buttons::Buttons(QWidget *parent, Books *books, Scene *scene, int window_x, int window_y): QWidget(parent), book_ref(books), scene_ref(scene) {
 }
@@ -29,7 +29,7 @@ void Buttons::add_book_button() {
         int end = book_list.size() - 1;
 
         button_struct_list.append(
-                button_details_strc("yellow", "black", true, 150, 50, book_list[end].pos_x, book_list[end].pos_y + 50, "circle")
+                button_details_strc("yellow", "black", true, 150, 50, book_list[end].pos_x + 25, book_list[end].pos_y + 50, "circle")
                 );
     }
 
@@ -57,7 +57,7 @@ void Buttons::show_buttons(const QVector<QString> &button_text_list) {
         const QString& button_text = button_text_list[i];
 
         //make new buttons
-        QPushButton* button = new QPushButton(button_text, this);
+        QPushButton* button = new QPushButton(button_text);
 
         //essential to making it a circle
         int size = qMin(button_struct_list[i].width, button_struct_list[i].height);
