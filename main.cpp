@@ -64,9 +64,6 @@ public:
         if(add_book_button){
             connect(add_book_button, &QPushButton::clicked, this, &MainWindow::open_book_search_window);
         }
-
-
-
     }
 };
 

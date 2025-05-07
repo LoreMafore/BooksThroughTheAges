@@ -9,22 +9,20 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QLineEdit>
+
 
 class Book_Search_Window : public QDialog{
+private slots:
+    void on_search_clicked();
+
 public:
-    Book_Search_Window(QWidget *parent = nullptr) : QDialog(parent){
-        setWindowTitle("New Book");
-        setModal(true);
+    explicit Book_Search_Window(QWidget *parent = nullptr);
 
-        QVBoxLayout *layout = new QVBoxLayout(this);
-        QLabel *label = new QLabel("Hello World", this);
+    QLineEdit * search_text_box;
 
-        QPushButton *close_button = new QPushButton("Close", this);
-        connect(close_button, &QPushButton::clicked, this, &QDialog::accept);
-
-        layout->addWidget(label);
-        setLayout(layout);
-        resize(300,100);
+    QString get_search_text()const{
+        return search_text_box ? search_text_box->text() : QString();
     }
 };
 
