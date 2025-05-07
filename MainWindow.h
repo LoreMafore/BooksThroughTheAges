@@ -1,5 +1,5 @@
 //
-// Created by momer on 5/6/2025.
+// Created by Conrad Mercer on 5/6/2025.
 //
 #ifndef BOOKSTHROUGHTHEAGES_MAINWINDOW_H
 #define BOOKSTHROUGHTHEAGES_MAINWINDOW_H

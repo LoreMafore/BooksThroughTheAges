@@ -1,7 +1,6 @@
 //
 // Created by Conrad Mercer on 4/29/2025.
 //
-
 #include <QApplication>
 #include <QMainWindow>
 #include "BookInfo.h"
@@ -31,25 +30,23 @@ public:
         setWindowTitle("Books Through The Ages");
         resize(800, 600);
 
-        Books *books = new Books(this, width(), height());
+        Scene *scene = new Scene(this, width(), height());
+        setCentralWidget(scene);
+
+        Books *books = new Books(this, scene,width(), height());
 
         QVector<QString> book_titles;
-        book_titles.append("Speaker for the Dead");
-        book_titles.append("Ender's Game");
-        book_titles.append("War and Peace");
-        book_titles.append("Harry Pottery");
+        book_titles<<"Speaker for the Dead" << "Ender's Game"<<"War and Peace"<<"Harry Pottery";
 
         books->show_books(book_titles);
 
-        Buttons *buttons = new Buttons(this, books);
+        Buttons *buttons = new Buttons(this, books, scene, width(), height());
         buttons->add_book_button();
 
         QVector<QString> button_text_list;
         button_text_list.append("+");
 
         buttons->show_buttons(button_text_list);
-
-        setCentralWidget(books);
 
     }
 };

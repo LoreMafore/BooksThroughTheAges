@@ -33,10 +33,11 @@ private:
     QVector<QPushButton*> push_button_list;
 
     Books *book_ref;
+    Scene *scene_ref;
 
 public:
 
-    explicit Buttons(QWidget * parent = nullptr, Books* books = nullptr, int window_x = 0, int window_y = 0);
+    explicit Buttons(QWidget *parent = nullptr, Books *books = nullptr, Scene *scene = nullptr, int window_x = 0, int window_y = 0);
 
     ~Buttons() override;
 

@@ -2,14 +2,10 @@
 // Created by Conrad Mercer on 5/5/2025.
 //
 #include "Buttons.h"
-#include <QBoxLayout>
-#include <QGraphicsProxyWidget>
-#include <QGraphicsRotation>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QTransform>
+#include <QGraphicsProxyWidget>>
 
-Buttons::Buttons(QWidget *parent, Books* books, int window_x, int window_y): QWidget(parent), book_ref(books) {}
+Buttons::Buttons(QWidget *parent, Books *books, Scene *scene, int window_x, int window_y): QWidget(parent), book_ref(books), scene_ref(scene) {
+}
 
 Buttons::~Buttons() {
     push_button_list.clear();
@@ -18,7 +14,7 @@ Buttons::~Buttons() {
 
 void Buttons::add_book_button() {
 
-    //allowing me to acess the pos of the different books
+    //allowing me to access the pos of the different books
     const auto& book_list = book_ref->get_book_struct_list();
 
     //no books - default
@@ -43,11 +39,14 @@ void Buttons::show_buttons(const QVector<QString> &button_text_list) {
     //ensures no duplicates
     push_button_list.clear();
 
-    //allowing me to access the books scene- will be change later to a universal scene
-    QGraphicsScene* scene = book_ref->get_scene();
+    if (!scene_ref) {
+        qDebug() << "Error: No reference available in Books object.";
+        return;
+    }
 
+    QGraphicsScene *scene = const_cast<QGraphicsScene *>(scene_ref->get_scene());
     if (!scene) {
-        qDebug() << "Error: No scene available from Books object.";
+        qDebug() << "Error: Invalid scene in Scene object.";
         return;
     }
 
@@ -94,6 +93,6 @@ void Buttons::show_buttons(const QVector<QString> &button_text_list) {
         button_wrapper->setPos(button_struct_list[i].pos_x, button_struct_list[i].pos_y);
     }
 
-
+    scene_ref->update_scene_rect();
 }
 

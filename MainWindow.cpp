@@ -1,5 +1,5 @@
 //
-// Created by momer on 5/6/2025.
+// Created by Conrad Mercer on 5/6/2025.
 //
 
 #include "MainWindow.h"
