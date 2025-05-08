@@ -12,6 +12,8 @@
 #include <QLineEdit>
 #include <QScrollArea>
 #include <QNetworkAccessManager>
+#include <QSslConfiguration>
+#include <QNetworkRequest>
 
 
 class Book_Search_Window : public QDialog{
@@ -42,6 +44,7 @@ public:
     }
 
     void clear_search_results();
+
 };
 
 #endif //BOOKSTHROUGHTHEAGES_BOOKSEARCHWINDOW_H

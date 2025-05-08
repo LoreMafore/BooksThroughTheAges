@@ -43,7 +43,7 @@ BookCard::BookCard(const QString &Title, const QString &Author, const QString &C
 
     if(!cover_id.isEmpty()){
         manager = new QNetworkAccessManager(this);
-        QUrl cover_url(QString("https://covers.openlibrary.org/b/id/%1-M.jpg").arg(cover_id));
+        QUrl cover_url(QString("http://covers.openlibrary.org/b/id/%1-M.jpg").arg(cover_id));
         QNetworkRequest request(cover_url);
         cover_reply = manager->get(request);
         connect(cover_reply, &QNetworkReply::finished, this, &BookCard::on_cover_image_downloaded);

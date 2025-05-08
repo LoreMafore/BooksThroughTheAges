@@ -95,7 +95,7 @@ void Book_Search_Window::on_search_clicked() {
     status_label->setText("Searching for books...");
     status_label->setStyleSheet("color: black;");
 
-    QUrl url("https://openlibrary.org/search.json");
+    QUrl url("http://openlibrary.org/search.json");
     QUrlQuery query;
     query.addQueryItem("title", search_text);
     query.addQueryItem("limit", "10");
@@ -186,9 +186,25 @@ void Book_Search_Window::on_book_selected(const QString &book_id) {
         QWidget *widget = scroll_layout->itemAt(i)->widget();
         BookCard *card = qobject_cast<BookCard*>(widget);
 
-//        if(card){
-//            if(card->book_id)
-//        }
+        if (card) {
+            if (card->book_id == book_id) {
+                card->setStyleSheet("BookCard { background-color: #e6f2ff; border: 2px solid #3399ff; border-radius: 5px; margin: 5px; padding: 10px; }");
+            } else {
+                card->setStyleSheet("BookCard { background-color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; margin: 5px; padding: 10px; }");
+            }
+        }
+    }
+}
 
+void Book_Search_Window::clear_search_results() {
+    selected_book_id.clear();
+    select_button->setEnabled(false);
+
+    QLayoutItem *item;
+    while((item = scroll_layout->takeAt(0)) != nullptr){
+        if(item->widget()){
+            delete item->widget();
+        }
+        delete item;
     }
 }
