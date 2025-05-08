@@ -61,6 +61,26 @@ if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
                 "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
     endif ()
+
+    # Copy imageformats plugins directory
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/imageformats/")
+
+    # Copy the JPEG image format plugin
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            "${QT_INSTALL_PATH}/plugins/imageformats/qjpeg${DEBUG_SUFFIX}.dll"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/imageformats/")
+
+    # Copy other common image format plugins for completeness
+    foreach (IMAGE_FORMAT qgif qico qsvg)
+        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy
+                "${QT_INSTALL_PATH}/plugins/imageformats/${IMAGE_FORMAT}${DEBUG_SUFFIX}.dll"
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/imageformats/")
+    endforeach (IMAGE_FORMAT)
+
     # Make sure to copy the Network DLL as well
     foreach (QT_LIB Core Gui Widgets Network)
         add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD

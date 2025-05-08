@@ -23,7 +23,8 @@
 Book_Search_Window::Book_Search_Window(QWidget *parent) : QDialog(parent){
     setWindowTitle("New Book");
     setModal(true);
-    setFixedSize(600,500);
+    resize(600,150);
+    setMaximumSize(600,500);
 
     main_layout = new QVBoxLayout(this);
     QHBoxLayout *search_layout = new QHBoxLayout();
@@ -61,17 +62,14 @@ Book_Search_Window::Book_Search_Window(QWidget *parent) : QDialog(parent){
 
     //add scroll area to main layout
     main_layout->addWidget(scroll_area,1);
+    scroll_area->setVisible(false);
+
     QHBoxLayout *buttons_layout = new QHBoxLayout();
     buttons_layout->addStretch(1);
 
-    select_button = new QPushButton("Select Book", this);
-    select_button->setEnabled(false);
-    connect(select_button, &QPushButton::clicked, this, &QDialog::accept);
-    buttons_layout->addWidget(select_button);
-
     main_layout->addLayout(buttons_layout);
 
-    QPushButton *new_book = new QPushButton("Add New Book", this);
+    QPushButton *new_book = new QPushButton("Manually Add New Book", this);
     main_layout->addWidget(new_book);
 
     setLayout(main_layout);
@@ -122,6 +120,7 @@ void Book_Search_Window::on_search_clicked() {
         if(num_found == 0){
             status_label->setText("No books found");
             status_label->setStyleSheet("color: black;");
+            scroll_area->setVisible(false);
             reply->deleteLater();
             return;
         }
@@ -172,33 +171,24 @@ void Book_Search_Window::on_search_clicked() {
             }
 
         }
-
+        if (docs.size() > 0) {
+            resize(600, 500);
+            scroll_area->setVisible(true);
+        }
         reply->deleteLater();
     });
 
 }
 
 void Book_Search_Window::on_book_selected(const QString &book_id) {
-    selected_book_id = book_id;
-    select_button->setEnabled(true);
 
-    for (int i = 0; i < scroll_layout->count(); ++i) {
-        QWidget *widget = scroll_layout->itemAt(i)->widget();
-        BookCard *card = qobject_cast<BookCard*>(widget);
+    //accept();
 
-        if (card) {
-            if (card->book_id == book_id) {
-                card->setStyleSheet("BookCard { background-color: #e6f2ff; border: 2px solid #3399ff; border-radius: 5px; margin: 5px; padding: 10px; }");
-            } else {
-                card->setStyleSheet("BookCard { background-color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; margin: 5px; padding: 10px; }");
-            }
-        }
-    }
+
 }
 
 void Book_Search_Window::clear_search_results() {
     selected_book_id.clear();
-    select_button->setEnabled(false);
 
     QLayoutItem *item;
     while((item = scroll_layout->takeAt(0)) != nullptr){

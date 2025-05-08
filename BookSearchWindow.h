@@ -33,7 +33,6 @@ public:
     QNetworkAccessManager *network_manager;
     QString selected_book_id;
     QLabel *status_label;
-    QPushButton *select_button;
 
     QString get_search_text(){
         return search_text_box ? search_text_box->text() : QString();
