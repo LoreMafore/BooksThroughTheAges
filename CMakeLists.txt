@@ -29,6 +29,8 @@ add_executable(BooksThroughTheAges
         MainWindow.cpp
         BookSearchWindow.h
         BookSearchWindow.cpp
+        BookCard.h
+        BookCard.cpp
 )
 target_link_libraries(BooksThroughTheAges
         Qt::Core

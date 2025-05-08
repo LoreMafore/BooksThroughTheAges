@@ -37,6 +37,8 @@ BooksThroughTheAges_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/Background.h \
+	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookCard.cpp \
+	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookCard.h \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h \
 	C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookSearchWindow.cpp \

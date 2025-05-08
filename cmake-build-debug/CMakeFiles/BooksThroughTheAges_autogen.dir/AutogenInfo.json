@@ -376,6 +376,12 @@
 			null
 		],
 		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookCard.h",
+			"MU",
+			"EWIEGA46WW/moc_BookCard.cpp",
+			null
+		],
+		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.h",
 			"MU",
 			"EWIEGA46WW/moc_BookInfo.cpp",
@@ -481,6 +487,11 @@
 	"SETTINGS_FILE" : "C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/cmake-build-debug/CMakeFiles/BooksThroughTheAges_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookCard.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Users/momer/Coding/CLionProjects/BooksThroughTheAges/BookInfo.cpp",
 			"MU",
