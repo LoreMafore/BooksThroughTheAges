@@ -21,6 +21,8 @@ Q_OBJECT
 private slots:
     void on_search_clicked();
     void on_book_selected(const QString &book_id);
+    void clear_search_results();
+//    void fetchBookDetails(const QString &edition_id);
 
 public:
     explicit Book_Search_Window(QWidget *parent = nullptr);
@@ -31,18 +33,37 @@ public:
     QWidget *scroll_content;
     QVBoxLayout *scroll_layout;
     QNetworkAccessManager *network_manager;
-    QString selected_book_id;
     QLabel *status_label;
+    QString selected_book_id;
+    QString selected_book_title;
+    QString selected_book_author;
+    QString selected_book_pages;
+    QPixmap selected_book_cover;
 
-    QString get_search_text(){
-        return search_text_box ? search_text_box->text() : QString();
-    }
+//    QString get_search_text(){
+//        return search_text_box ? search_text_box->text() : QString();
+//    }
+//
+//    QString get_selected_book_id(){
+//        return selected_book_id;
+//    }
+//
+//    QString get_selected_book_title(){
+//        return selected_book_title;
+//    }
+//
+//    QString get_selected_book_author(){
+//        return selected_book_author;
+//    }
+//
+//    QString get_selected_book_pages(){
+//        return selected_book_pages;
+//    }
+//
+//    QPixmap get_selected_book_cover(){
+//        return selected_book_cover;
+//    }
 
-    QString get_selected_book_id(){
-        return selected_book_id;
-    }
-
-    void clear_search_results();
 
 };
 

@@ -15,7 +15,7 @@ BookCard::BookCard(const QString &Title, const QString &Author, const QString &C
     cover_label = new QLabel(this);
     cover_label->setFixedSize(70,100);
     cover_label->setAlignment(Qt::AlignCenter);
-    cover_label->setStyleSheet("border: 1px solid black;");
+    //cover_label->setStyleSheet("border: 1px solid black;");
 
     QVBoxLayout *details_layout = new QVBoxLayout();
 

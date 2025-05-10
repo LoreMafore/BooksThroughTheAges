@@ -2,6 +2,9 @@
 // Created by momer on 4/29/2025.
 //
 #include "BookInfo.h"
+#include <QMainWindow>
+#include <QApplication>
+//#include "BookInfoWindow.h"
 
 Text::Text(QWidget *parent, int window_x, int window_y) : QWidget(parent){
 
@@ -224,7 +227,7 @@ void Text::fetch_book_info(const QString &workId){
                 text_items[i].text = get_pages;
             }
         }
-
+    }
         update();
     });
 }

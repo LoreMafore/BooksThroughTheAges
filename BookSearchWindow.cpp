@@ -4,6 +4,7 @@
 
 #include "BookSearchWindow.h"
 #include "BookCard.h"
+#include "BookInfo.h"
 #include <QLine>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -181,11 +182,14 @@ void Book_Search_Window::on_search_clicked() {
 }
 
 void Book_Search_Window::on_book_selected(const QString &book_id) {
+    selected_book_id = book_id;
 
-    //accept();
 
-
+    
+    bookInfoWidget->fetch_book_info("OL9639573M");
 }
+
+
 
 void Book_Search_Window::clear_search_results() {
     selected_book_id.clear();
