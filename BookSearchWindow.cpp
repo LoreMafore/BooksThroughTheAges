@@ -186,7 +186,7 @@ void Book_Search_Window::on_book_selected(const QString &book_id) {
 
 
     
-    bookInfoWidget->fetch_book_info("OL9639573M");
+    //bookInfoWidget->fetch_book_info("OL9639573M");
 }
 
 

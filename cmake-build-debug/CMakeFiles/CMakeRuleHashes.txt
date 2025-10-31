@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+377d1f682df21adccc5f4f9340176e23 BooksThroughTheAges_autogen/timestamp
+60bfcfcb3668d73d9dd13e373fffab94 CMakeFiles/BooksThroughTheAges_autogen
+1b161f35fed73f8ef80f30c942742212 qrc_resources.cpp

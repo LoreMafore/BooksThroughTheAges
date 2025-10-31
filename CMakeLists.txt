@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_PREFIX_PATH "C:\\Qt\\6.9.3\\mingw_64")
 
 
 find_package(Qt6 COMPONENTS
@@ -25,14 +26,20 @@ add_executable(BooksThroughTheAges
         Buttons.h
         Books.h
         Books.cpp
-        MainWindow.h
-        MainWindow.cpp
+        MainWindowOld.h
+        MainWindowOld.cpp
         BookSearchWindow.h
         BookSearchWindow.cpp
         BookCard.h
         BookCard.cpp
         BookInfoWindow.h
         BookInfoWindow.cpp
+        newsearchwindow.cpp
+        newsearchwindow.h
+        newsearchwindow.ui
+        mainWindow.cpp
+        mainWindow.h
+        mainWindow.ui
 )
 target_link_libraries(BooksThroughTheAges
         Qt::Core

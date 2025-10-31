@@ -222,14 +222,13 @@ void Text::fetch_book_info(const QString &workId){
             else if (i == 3) {  // This is the author text item (fourth item in your array)
                 text_items[i].text = get_author;
             }
-
             else if (i == 5) {  // This is the pages text item (fifth item in your array)
                 text_items[i].text = get_pages;
             }
         }
-    }
-        update();
-    });
+
+        update();  // ← Now INSIDE the lambda
+    });  // ← Closes lambda and function call properly
 }
 
 void Text::add_text(const QString& text, QFont& font, const QColor& color, int &x, int &y, int width, bool wrap){

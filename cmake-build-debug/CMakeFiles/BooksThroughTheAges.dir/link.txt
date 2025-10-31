@@ -1,0 +1,3 @@
+C:\Users\momer\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\BooksThroughTheAges.dir/objects.a
+C:\Users\momer\AppData\Local\Programs\CLion\bin\mingw\bin\ar.exe qc CMakeFiles\BooksThroughTheAges.dir/objects.a @CMakeFiles\BooksThroughTheAges.dir\objects1.rsp
+C:\Users\momer\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\BooksThroughTheAges.dir/objects.a -Wl,--no-whole-archive -o BooksThroughTheAges.exe -Wl,--out-implib,libBooksThroughTheAges.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BooksThroughTheAges.dir\linkLibs.rsp

@@ -5,7 +5,7 @@
 #ifndef BOOKSTHROUGHTHEAGES_BOOKS_H
 #define BOOKSTHROUGHTHEAGES_BOOKS_H
 
-#include "MainWindow.h"
+#include "MainWindowOld.h"
 #include <QWidget>
 #include <QApplication>
 #include <QPushButton>
