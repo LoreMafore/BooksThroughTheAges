@@ -8,13 +8,23 @@
 #include "ui_mainWindow.h"
 
 
-mainWindow::mainWindow(QWidget* parent) :
-    QWidget(parent), ui(new Ui::mainWindow)
+mainWindow::mainWindow(QWidget* parent)
+    : QMainWindow(parent)
+    , ui(new Ui::mainWindow)
 {
     ui->setupUi(this);
+    new_search_window = new NewSearchWindow(this);
+
+
+    connect(ui->newBookBtn, &QPushButton::clicked, this, &mainWindow::openNewSearchWindow);
 }
 
 mainWindow::~mainWindow()
 {
     delete ui;
+}
+
+void mainWindow::openNewSearchWindow()
+{
+    new_search_window->open();
 }

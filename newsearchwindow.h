@@ -1,21 +1,15 @@
-//
-// Created by momer on 10/30/2025.
-//
-
 #ifndef BOOKSTHROUGHTHEAGES_NEWSEARCHWINDOW_H
 #define BOOKSTHROUGHTHEAGES_NEWSEARCHWINDOW_H
 
 #include <QDialog>
+#include <QNetworkAccessManager>
 
-
-QT_BEGIN_NAMESPACE
 
 namespace Ui
 {
     class NewSearchWindow;
 }
 
-QT_END_NAMESPACE
 
 class NewSearchWindow : public QDialog
 {
@@ -24,9 +18,24 @@ class NewSearchWindow : public QDialog
 public:
     explicit NewSearchWindow(QWidget* parent = nullptr);
     ~NewSearchWindow() override;
+    void newSearchWindowInit();
+
+private slots:
+    void on_searchBtn_clicked();
 
 private:
     Ui::NewSearchWindow* ui;
+
+    QNetworkAccessManager* network_manager{};
+    QString search_limit = "10";
+    QString bk_id;
+    QString bk_title;
+    QString bk_author;
+    QString bk_pages;
+    QPixmap bk_pixmap;
+
+    void searchQuery(QString search);
+    void closeEvent(QCloseEvent* event) override;
 };
 
 

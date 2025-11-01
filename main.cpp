@@ -7,6 +7,7 @@
 #include "Books.h"
 #include "Buttons.h"
 #include "BookSearchWindow.h"
+#include "mainWindow.h"  // Make sure this matches your actual filename exactly
 
 class BookInfoWindow : public QMainWindow {
 public:
@@ -72,7 +73,8 @@ public:
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    MainWindow window;
+    // MainWindow window;
+    mainWindow window;
     window.show();
 
     return app.exec();

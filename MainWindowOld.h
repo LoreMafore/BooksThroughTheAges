@@ -1,8 +1,8 @@
 //
 // Created by Conrad Mercer on 5/6/2025.
 //
-#ifndef BOOKSTHROUGHTHEAGES_MAINWINDOW_H
-#define BOOKSTHROUGHTHEAGES_MAINWINDOW_H
+#ifndef BOOKSTHROUGHTHEAGES_MAINWINDOWOLD_H
+#define BOOKSTHROUGHTHEAGES_MAINWINDOWOLD_H
 
 #include <QWidget>
 #include <QGraphicsScene>
