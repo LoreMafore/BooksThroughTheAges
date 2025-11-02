@@ -73,8 +73,8 @@ public:
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    // MainWindow window;
-    mainWindow window;
+    MainWindow window;
+    // mainWindow window;
     window.show();
 
     return app.exec();

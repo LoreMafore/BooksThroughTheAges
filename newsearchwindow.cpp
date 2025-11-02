@@ -15,9 +15,7 @@ NewSearchWindow::NewSearchWindow(QWidget* parent) :
 {
     this->setModal(true);
     ui->setupUi(this);
-    this->setFixedSize(715, 45);
-    // this->setMinimumSize(715, 45);
-    // this->setMaximumSize(715, 500);
+    this->setFixedSize(reg_w, reg_h);
     this->setWindowTitle("Book Search");
     ui->searchBar->setPlaceholderText("Enter book title");
     ui->statusLbl->setVisible(false);
@@ -40,9 +38,10 @@ void NewSearchWindow::on_searchBtn_clicked()
     {
         return;
     }
-    this->setFixedSize(715, 500);
+    this->setFixedSize(search_w, search_h);
     ui->statusLbl->setVisible(true);
     ui->statusLbl->setText("Searching for books...");
+    ui->statusLbl->setStyleSheet("color: black;");
 
 }
 
@@ -57,12 +56,39 @@ void NewSearchWindow::searchQuery(QString search)
     QNetworkRequest request(url);
     QNetworkReply *reply = network_manager->get(request);
 
+    connect(reply, &QNetworkReply::finished, [this, reply]()
+    {
+        int num_found = 0; //number of results
+
+        if(reply->error() != QNetworkReply::NoError)
+        {
+            ui->statusLbl->setText("Error: " + reply->errorString());
+            ui->statusLbl->setStyleSheet("color: red;");
+            reply->deleteLater();
+            return;
+        }
+
+        QByteArray search_data = reply->readAll();
+        QJsonDocument search_json_doc = QJsonDocument::fromJson(search_data);
+        QJsonObject search_json = search_json_doc.object();
+
+        num_found= search_json["num_found"].toInt();
+        if(num_found == 0)
+        {
+            ui->statusLbl->setText("No books found" );
+            ui->statusLbl->setStyleSheet("color: red;");
+            reply->deleteLater();
+            return;
+        }
+
+        QJsonArray books = search_json["docs"].toArray();
+    });
 }
 
 void NewSearchWindow::closeEvent(QCloseEvent* event)
 {
     ui->searchBar->clear();
     ui->statusLbl->setVisible(false);
-    this->setFixedSize(715, 45);
+    this->setFixedSize(reg_w, reg_h);
     QDialog::closeEvent(event);
 }

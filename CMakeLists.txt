@@ -40,6 +40,9 @@ add_executable(BooksThroughTheAges
         mainWindow.cpp
         mainWindow.h
         mainWindow.ui
+        bookListWidget.cpp
+        bookListWidget.h
+        bookListWidget.ui
 )
 target_link_libraries(BooksThroughTheAges
         Qt::Core
