@@ -6,6 +6,7 @@
 #define BOOKSTHROUGHTHEAGES_BOOKLISTWIDGET_H
 
 #include <QWidget>
+#include <QNetworkAccessManager>
 
 
 QT_BEGIN_NAMESPACE
@@ -28,6 +29,11 @@ public:
 
 private:
     Ui::bookListWidget* ui;
+
+    QNetworkAccessManager* manager;
+    QNetworkReply *cover_reply;
+
+    void loadCover();
 };
 
 
