@@ -173,7 +173,7 @@ void Book_Search_Window::on_search_clicked() {
 
         }
         if (docs.size() > 0) {
-            resize(600, 500);
+            resize(605, 500);
             scroll_area->setVisible(true);
         }
         reply->deleteLater();

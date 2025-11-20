@@ -6,11 +6,13 @@
 #include "ui_bookListWidget.h"
 
 
-bookListWidget::bookListWidget(QWidget* parent) :
+bookListWidget::bookListWidget(const QMap<QString, QString> &map, QWidget* parent) :
     QWidget(parent), ui(new Ui::bookListWidget)
 {
     ui->setupUi(this);
     ui->coverLbl->setFixedSize(115, 180);
+    this->setFixedSize(585,205);
+    configBookList(map);
 }
 
 bookListWidget::~bookListWidget()
@@ -65,8 +67,27 @@ void bookListWidget::loadCover()
            QPixmap cover_pixmap;
            if(cover_pixmap.loadFromData(coverPng))
            {
-               //cover_pixmap
+               cover_pixmap = cover_pixmap.scaled(ui->coverLbl->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+               ui->coverLbl->setPixmap(cover_pixmap);
+               qDebug() << "Cover loaded and converted to PNG successfully";
+           }
+           else
+           {
+               qDebug() << "Failed to load PNG after conversion";
+               ui->coverLbl->setText("Error\nLoading\nCover");
            }
        }
+       else
+           {
+           qDebug() << "Failed to load image from JPEG data";
+           ui->coverLbl->setText("Error\nLoading\nCover");
+       }
    }
+    else
+    {
+       qDebug() << "Cover download error:" << cover_reply->errorString();
+       ui->coverLbl->setText("Error\nLoading\nCover");
+   }
+
+    cover_reply->deleteLater();
 }

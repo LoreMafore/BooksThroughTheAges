@@ -26,18 +26,22 @@ private slots:
 private:
     Ui::NewSearchWindow* ui;
 
+    // uint16_t reg_w = 710; //initial width
     uint16_t reg_w = 605; //initial width
     uint16_t reg_h = 45;  //initial height
+    // uint16_t search_w = 710; // after search width
     uint16_t search_w = 605; // after search width
-    uint16_t search_h = 495; // after search height
+    uint16_t search_h = 500; // after search height
 
     QNetworkAccessManager* network_manager{};
     QString search_limit = "10";
-    QString bk_id;
-    QString bk_title;
     QString bk_author;
+    QString bk_cover_id;
+    QString bk_id;
     QString bk_pages;
-    QPixmap bk_pixmap;
+    QString bk_title;
+    QMap<QString, QString> bk_info;
+    // QPixmap bk_pixmap;
 
     void searchQuery(QString search);
     void closeEvent(QCloseEvent* event) override;

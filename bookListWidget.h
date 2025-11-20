@@ -23,7 +23,7 @@ class bookListWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit bookListWidget(QWidget* parent = nullptr);
+    explicit bookListWidget(const QMap<QString, QString> &map, QWidget* parent = nullptr);
     ~bookListWidget() override;
     void configBookList(QMap<QString, QString> bookInfo);
 
